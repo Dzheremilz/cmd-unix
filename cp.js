@@ -29,7 +29,7 @@ if (process.argv.length === 4) {
 
 if (process.argv.length > 4 && fs.existsSync(process.argv[process.argv.length - 1]) && fs.lstatSync(process.argv[process.argv.length - 1]).isDirectory()) {
   for (let i = 2; i < process.argv.length - 1; i++) {
-    if (process.argv[3] === '.') {
+    if (process.argv[process.argv.length - 1] === '.') {
       console.log(`node cp.js: '${process.argv[i]}' and '${process.argv[process.argv.length - 1] + '/' + process.argv[i]}' are the same file`)
     } else {
       fs.copyFileSync(process.argv[i], process.argv[process.argv.length - 1] + '/' + process.argv[i])
