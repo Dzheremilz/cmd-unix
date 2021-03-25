@@ -13,7 +13,6 @@ if (yargs._.length === 1) {
   process.exit(1)
 }
 
-
 if (!fs.existsSync(yargs._[0])) {
   console.log(`node cp.js: cannot stat '${yargs._[0]}': No such file or directory`)
   process.exit(1)
@@ -23,7 +22,6 @@ if (fs.statSync(yargs._[0]).isDirectory()) {
   console.log(`node cp.js: ${yargs._[0]} is a directory: no option yet, come back later`)
   process.exit(1)
 }
-
 
 if (yargs._.length === 2) {
   if (fs.existsSync(yargs._[1]) && fs.statSync(yargs._[1]).isDirectory()) {
@@ -56,7 +54,6 @@ if (yargs._.length > 2 && fs.existsSync(yargs._[yargs._.length - 1]) && fs.statS
     if (yargs._[yargs._.length - 1] === '.') {
       console.log(`node cp.js: '${yargs._[i]}' and '${yargs._[yargs._.length - 1] + '/' + yargs._[i]}' are the same file`)
     } else {
-
       fs.copyFileSync(yargs._[i], yargs._[yargs._.length - 1] + '/' + yargs._[i].split('/').reverse()[0])
       if (yargs.v) {
         console.log(`\'${yargs._[i]}\' -> \'${yargs._[yargs._.length - 1] + '/' + yargs._[i].split('/').reverse()[0]}\'`)
